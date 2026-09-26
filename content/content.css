@@ -1,0 +1,28 @@
+/* 커스텀 자막 오버레이. font-size는 content.js가 영상 높이 × 배율로 계산해서 넣음. */
+.ytsub-overlay {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 6%;
+  z-index: 45; /* 영상 위, 컨트롤 바(.ytp-chrome-bottom) 아래 */
+  text-align: center;
+  pointer-events: none;
+  transition: bottom 0.2s ease;
+}
+
+/* 컨트롤 바가 보일 때는 가리지 않도록 위로 */
+.html5-video-player:not(.ytp-autohide) .ytsub-overlay {
+  bottom: calc(6% + 48px);
+}
+
+.ytsub-cue {
+  display: inline;
+  padding: 0.1em 0.35em;
+  line-height: 1.5;
+  white-space: pre-line;
+  color: #fff;
+  background-color: rgba(8, 8, 8, 0.75);
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}

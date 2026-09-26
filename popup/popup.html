@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>커스텀 자막</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <p id="notice" hidden></p>
+
+  <main id="main">
+    <section id="videoSection" hidden>
+      <section class="video">
+        <div id="title" class="title"></div>
+        <div id="videoId" class="muted"></div>
+      </section>
+
+      <section>
+        <div class="label">현재 자막</div>
+        <div id="current" class="muted">없음</div>
+      </section>
+
+      <section>
+        <label class="button file">
+          자막 파일 선택 (.srt / .vtt)
+          <input id="file" type="file" accept=".srt,.vtt,text/vtt">
+        </label>
+      </section>
+
+      <section id="controls" hidden>
+        <div class="label">싱크 조절 (초) <span class="muted">+ 는 자막을 늦게</span></div>
+        <div class="row">
+          <button data-step="-0.5">−0.5</button>
+          <button data-step="-0.1">−0.1</button>
+          <input id="offset" type="number" step="0.1" value="0">
+          <button data-step="0.1">+0.1</button>
+          <button data-step="0.5">+0.5</button>
+        </div>
+
+        <div class="row spread">
+          <label><input id="enabled" type="checkbox" checked> 자막 표시</label>
+          <button id="delete" class="danger">자막 삭제</button>
+        </div>
+      </section>
+    </section>
+
+    <section>
+      <div class="label">자막 크기 <span class="muted">(모든 영상 공통)</span></div>
+      <div class="row">
+        <input id="fontScale" type="range" min="30" max="200" step="5" value="70">
+        <span id="fontScaleValue" class="value">70%</span>
+        <button id="fontScaleReset">기본값</button>
+      </div>
+    </section>
+
+    <section>
+      <div class="label">등록된 자막 목록</div>
+      <input id="subSearch" type="search" placeholder="영상 제목 / 파일명으로 검색" class="search">
+      <ul id="subList" class="sub-list"></ul>
+      <div id="subListEmpty" class="muted" hidden>등록된 자막이 없습니다.</div>
+    </section>
+
+    <p id="error" class="error" hidden></p>
+  </main>
+
+  <script src="subtitle-parser.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

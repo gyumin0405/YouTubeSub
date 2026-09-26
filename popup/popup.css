@@ -1,0 +1,97 @@
+:root {
+  color-scheme: light dark;
+  --fg: #1a1a1a;
+  --bg: #fff;
+  --muted: #6b6b6b;
+  --border: #d4d4d4;
+  --accent: #c4302b;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --fg: #eee; --bg: #202124; --muted: #9a9a9a; --border: #444; }
+}
+
+body {
+  width: 300px;
+  margin: 0;
+  padding: 12px;
+  font: 13px/1.4 "Malgun Gothic", system-ui, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+section { margin-bottom: 12px; }
+.title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.label { font-weight: 600; margin-bottom: 4px; }
+.muted { color: var(--muted); font-size: 12px; font-weight: normal; }
+.error { color: var(--accent); }
+
+.row { display: flex; gap: 4px; align-items: center; margin-bottom: 8px; }
+.row.spread { justify-content: space-between; }
+
+button, .button {
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+button:hover, .button:hover { border-color: var(--fg); }
+.button.file { display: block; text-align: center; padding: 8px; }
+.button.file input { display: none; }
+.danger { color: var(--accent); }
+
+#fontScale { flex: 1; min-width: 0; accent-color: var(--accent); }
+.value { width: 40px; text-align: right; font-variant-numeric: tabular-nums; }
+
+#offset {
+  width: 56px;
+  padding: 3px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+}
+
+.search {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 4px 6px;
+  margin-bottom: 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.sub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 160px;
+  overflow-y: auto;
+}
+.sub-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sub-item:last-child { border-bottom: none; }
+.sub-item.current .sub-item-title::after {
+  content: ' (현재)';
+  color: var(--accent);
+  font-weight: normal;
+}
+.sub-item-info { flex: 1; min-width: 0; }
+.sub-item-title {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+button.small { padding: 2px 6px; font-size: 12px; flex-shrink: 0; }

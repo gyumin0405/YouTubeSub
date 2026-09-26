@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Custom Subtitles",
+  "version": "0.1.0",
+  "description": "SRT/VTT 자막 파일을 유튜브 영상에 띄웁니다.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "커스텀 자막",
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
